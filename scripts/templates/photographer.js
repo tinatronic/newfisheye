@@ -1,13 +1,14 @@
 function photographerTemplate(data) {
     const { name, id, city, country, tagline, price, portrait } = data;
-    //const picture = `assets/photographers/${portrait}`;
-    
+    const picture = `assets/photographers/${portrait}`;
+    const link = `./photographer.html?id=${id}`;
+
     function displayCardDOM() {
         const article = document.createElement('article');
         article.classList.add("photographer");
         
-        const photographerCard = `<a href="./photographer.html?id=${id}" aria-label="navigate to the photographer page" tabindex="0">
-                                    <img class="photographer__portrait" src="../assets/photographers/${portrait}" alt="photographer portrait">
+        const photographerCard = `<a href="${link}" aria-label="navigate to the photographer page" tabindex="0">
+                                    <img class="photographer__portrait" src="${picture}" alt="photographer portrait">
                                     <h2>${name}</h2>
                                   </a>
                                   <p class="photographer__location">${city}, ${country}</p>
@@ -24,5 +25,20 @@ function photographerTemplate(data) {
         
         return article;
     }
-    return { displayCardDOM }
+
+    function displayHeaderDOM() {
+        const photographerHeader = document.querySelector(".photographer__header");
+        const headerContent = `<div class="photographer__info">
+                                <h1 class="info-name">${name}</h1>
+                                <p class="info-location">${city}, ${country}</p>
+                                <p class="info-tagline">${tagline}</p>
+                            </div>
+                            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+                            <img class="photographer__portrait" src="${picture}" alt="${name}">`
+
+        photographerHeader.innerHTML = headerContent;
+        return photographerHeader;
+    }
+    
+    return { displayCardDOM, displayHeaderDOM }
 }
