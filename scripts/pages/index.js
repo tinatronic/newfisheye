@@ -1,19 +1,19 @@
 async function getPhotographers() {
-    //Get Json data with using fetch
+    // Get Json data with using fetch
     let photographers = await fetch('../data/photographers.json')
     // Promise => response
     .then(data => data.json())
-    //Return array of photographers
-    console.log(photographers);
+    // Return array of photographers
+    //console.log(photographers);
     return photographers;
 }
 
 async function displayData(photographers) {
-    const photographersSection = document.querySelector(".photographer_section");
+    const photographersSection = document.querySelector(".photographer__section");
 
     photographers.forEach((photographer) => {
         const photographerModel = photographerTemplate(photographer);
-        const userCardDOM = photographerModel.getUserCardDOM();
+        const userCardDOM = photographerModel.displayCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
 }
