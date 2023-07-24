@@ -2,10 +2,37 @@
     display: none;
 }
 
-.photograph-header {
+/* Header */
+
+.photographer__header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.photographer__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-name {
+    color: var(--secondary-color);
+    font-size: 45px;
+    margin: 0;
+}
+
+.info-location {
+    color: var(--primary-color);
+    font-size: 25px;
+    margin: 10px 0 18px 0;
+}
+
+.info-tagline {
+    font-size: 16px;
 }
 
 .contact_button {
@@ -20,6 +47,8 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* Modal */
 
 .modal {
     border-radius: 5px;
