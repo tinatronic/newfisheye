@@ -1,11 +1,28 @@
 @import url("photographer.css");
 
+/* Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
+/* Variables */
+:root {
+    --primary-color: #901C1C;
+    --secondary-color: #D3573C;
+}
+
+/* Header */
 header {
     display: flex;
     flex-direction: row;
@@ -15,7 +32,7 @@ header {
 }
 
 h1 {
-    color: #901C1C;
+    color: var(--primary-color);
     margin-right: 100px;
 }
 
@@ -24,20 +41,22 @@ h1 {
     margin-left: 100px;
 }
 
-.photographer_section {
+/* Section Photographer*/
+
+.photographer__section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 70px;
-    margin-top: 100px;
+    margin: 100px 0 75px 0;
 }
 
 @media screen and (max-width: 768px) {
-    .photographer_section {
+    .photographer__section {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-.photographer_section article {
+.photographer__section article, .photographer__section a {
     justify-self: center;
     display: flex;
     justify-content: center;
@@ -45,12 +64,38 @@ h1 {
     flex-direction: column;
 }
 
-.photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
-}
-
-.photographer_section article img {
+.photographer__portrait {
     height: 200px;
     width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+    overflow-clip-margin: unset;
+}
+
+.photographer__section article h2 {
+    color: var(--secondary-color);
+    font-size: 36px;
+    margin-top: 12px;
+}
+
+@media screen and (max-width: 1050px) {
+    .photographer__section article h2 {
+        font-size: 24px;
+    }
+}
+
+.photographer__location {
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+.photographer__tagline {
+    font-size: 14px;
+    margin: 5px 0 7px 0;
+}
+
+.photographer__price {
+    color: lightslategray;
+    font-size: 12px;
 }
