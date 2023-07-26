@@ -2,16 +2,14 @@
 const url = new URLSearchParams(document.location.search);
 const photographerIdURL = parseInt(url.get("id"));
 
-async function getPhotographers() {
+async function getAllData() {
     try {
         const res = await fetch('../data/photographers.json');
         const data = await res.json();
-        const photographers = data.photographers;
-
-        return photographers;
+        return data; 
     } catch(err) {
-        throw new Error("Error fetching data.");
-    }   
+        throw new Error("Error.");
+    }
 }
 
 // Get the photographer corresponsing of the Id of the page
@@ -50,18 +48,25 @@ async function displayPhotographerHeader(photographerById) {
 async function displayMedia(photographerMediaById) {
     const mediaSection = document.getElementById("media"); 
 
-    photographerMediaById.forEach((photographerMediaById) => {
-        const mediaModel = mediaTemplate(photographerMediaById);
-        const mediaCardDOM = mediaModel.displayMediaCardDOM();
+    for (const media of photographerMediaById) {
+        const mediaModel = await mediaTemplate(media);
+        const mediaCardDOM = await mediaModel.displayMediaCardDOM();
         mediaSection.appendChild(mediaCardDOM);
-    });
+    }
+    // photographerMediaById.forEach((photographerMediaById) => {
+    //     const mediaModel = mediaTemplate(photographerMediaById);
+    //     //console.log(mediaModel)
+    //     const mediaCardDOM = mediaModel.displayMediaCardDOM(media);
+    //     //console.log(mediaCardDOM)
+    //     mediaSection.appendChild(mediaCardDOM);
+    // });
 }
 
 async function init() {
     const photographertoDisplay = await getPhotographerbyId();
-    const mediatoDisplay = await getMediabyId();
+    const mediaToDisplay = await getMediabyId();
     displayPhotographerHeader(photographertoDisplay);
-    displayMedia(mediatoDisplay);
+    displayMedia(mediaToDisplay);
 }
 
 init();
