@@ -52,6 +52,11 @@
     cursor: pointer;
 }
 
+.contact_button:hover {
+    background-color: var(--secondary-color);
+    color: #000;
+}
+
 /* Media Cards*/
 
 #media {
@@ -90,6 +95,20 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 5px;
+}
+
+#totalLikes-wrapper {
+    width: 350px;
+    position: fixed;
+    top: 93%;
+    right: 38px;
+    background-color: var(--secondary-color);
+    border-radius: 5px 5px 0 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    
 }
 
 /* Modal */
@@ -147,10 +166,12 @@ form div {
 }
 
 form input {
+    font-size: 20px;
     width: 100%;
     height: 68px;
     border: none;
     border-radius: 5px;
+    padding: 0 7px;
 }
 
 form textarea {
@@ -163,13 +184,11 @@ form textarea {
 
 .form-data[data-error]::after {
     content: attr(data-error);
-    font-size: 0.4em;
-    color: #e54858;
+    font-size: 15px;
+    color: var(--primary-color);
     display: block;
-    margin-top: 7px;
-    margin-bottom: 7px;
     text-align: left;
-    line-height: 0.3;
+    margin-top: 5px;
     opacity: 0;
     transition: 0.3s;
   }
@@ -177,5 +196,5 @@ form textarea {
     opacity: 1;
   }
   .form-data[data-error-visible="true"] .text-control {
-    border: 2px solid #e54858;
+    border: 2px solid var(--primary-color);
   }

@@ -29,7 +29,17 @@ function photographerTemplate(data) {
     
     // Creates the HTML structure of the photographer header
     function displayHeaderDOM() {
-        const photographerHeader = document.querySelector(".photographer__header");
+        const photographerHeader = document.querySelector('.photographer__header');
+        
+        // const photographerInfo = document.createElement('div');
+        // photographerInfo.classList.add('photographer__info');
+        
+        // const infoName = document.createElement('h1');
+        // infoName.classList.add('info-name');
+        // infoName.textContent(name);
+        // const infoLocation = document.createElement('p');
+        // infoLocation.textContent();
+
         const headerContent = `<div class="photographer__info">
         <h1 class="info-name" tabindex="0">${name}</h1>
         <p class="info-location" tabindex="0">${city}, ${country}</p>
