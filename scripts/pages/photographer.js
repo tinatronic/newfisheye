@@ -1,16 +1,8 @@
+//import { mediaTemplate }  from "../templates/media.js"
+
 //Get the value of the ID parameter of the URL
 const url = new URLSearchParams(document.location.search);
 const photographerIdURL = parseInt(url.get("id"));
-
-async function getAllData() {
-    try {
-        const res = await fetch('../data/photographers.json');
-        const data = await res.json();
-        return data; 
-    } catch(err) {
-        throw new Error("Error.");
-    }
-}
 
 // Get the photographer corresponsing of the Id of the page
 async function getPhotographerbyId() {
@@ -45,11 +37,11 @@ async function displayPhotographerHeader(photographerById) {
 }
 
 // Get the media template and display the data on the page
-async function displayMedia(photographerMediaById) {
-    const mediaSection = document.getElementById("media"); 
+async function displayMedia(medias, photographer) {
+    const mediaSection = document.getElementById("media");
 
-    for (const media of photographerMediaById) {
-        const mediaModel = await mediaTemplate(media);
+    for (const media of medias) {
+        const mediaModel = await mediaTemplate(media, photographer);
         const mediaCardDOM = await mediaModel.displayMediaCardDOM();
         mediaSection.appendChild(mediaCardDOM);
     }
@@ -63,10 +55,10 @@ async function displayMedia(photographerMediaById) {
 }
 
 async function init() {
-    const photographertoDisplay = await getPhotographerbyId();
-    const mediaToDisplay = await getMediabyId();
+    const photographertoDisplay  = await getPhotographerbyId();
+    const mediaToDisplay  = await getMediabyId();
     displayPhotographerHeader(photographertoDisplay);
-    displayMedia(mediaToDisplay);
+    displayMedia(mediaToDisplay, photographertoDisplay);
 }
 
 init();
