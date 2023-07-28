@@ -21,25 +21,9 @@ async function mediaTemplate(media, photographer) {
         </figure>`
         
         mediaArticle.innerHTML = mediaContent;
-        //
         
         return mediaArticle;    
     }
-    
-    async function displayTotalLikesDOM() {
-        const totalLikesWrapper = document.createElement('div');
-        totalLikesWrapper.classList.add('totalLikes-wrapper');
-        const likeContent = `
-        <div>
-        <span id="total-likes">99</span>
-        <i class="fas fa-heart"></i>
-        </div>
-        <span>${price}€ / jour</span>`
-        
-        totalLikesWrapper.innerHTML = likeContent;
-    }
-    
-    
-    
-    return { displayMediaCardDOM, displayTotalLikesDOM }
+
+    return { displayMediaCardDOM }
 }
