@@ -31,24 +31,44 @@ function photographerTemplate(data) {
     function displayHeaderDOM() {
         const photographerHeader = document.querySelector('.photographer__header');
         
-        // const photographerInfo = document.createElement('div');
-        // photographerInfo.classList.add('photographer__info');
+        const photographerInfo = document.createElement('div');
+        photographerInfo.classList.add('photographer__info');
         
-        // const infoName = document.createElement('h1');
-        // infoName.classList.add('info-name');
-        // infoName.textContent(name);
-        // const infoLocation = document.createElement('p');
-        // infoLocation.textContent();
+        const infoName = document.createElement('h1');
+        infoName.classList.add('info-name');
+        infoName.textContent = name;
 
-        const headerContent = `<div class="photographer__info">
-        <h1 class="info-name" tabindex="0">${name}</h1>
-        <p class="info-location" tabindex="0">${city}, ${country}</p>
-        <p class="info-tagline" tabindex="0">${tagline}</p>
-        </div>
-        <button id="open-btn" type="button" class="contact_button open-btn" aria-label="Contact me" tabindex="0" onclick="displayModal()">Contactez-moi</button>
-        <img class="photographer__portrait" src="${picture}" alt="${name}">`
+        const infoLocation = document.createElement('p');
+        infoLocation.classList.add('info-location');
+        infoLocation.textContent = city + ", " + country;
+
+        const infoTagline = document.createElement('p');
+        infoTagline.classList.add('info-tagline');
+        infoTagline.textContent = tagline;
+
+        photographerInfo.appendChild(infoName);
+        photographerInfo.appendChild(infoLocation);
+        photographerInfo.appendChild(infoTagline);
+
+        const contactBtn = document.getElementById('open-btn');
+
+        const photographerPortrait = document.createElement('img');
+        photographerPortrait.classList.add('photographer__portrait');
+        photographerPortrait.setAttribute('src', picture);
+
+        // const headerContent = `<div class="photographer__info">
+        // <h1 class="info-name" tabindex="0">${name}</h1>
+        // <p class="info-location" tabindex="0">${city}, ${country}</p>
+        // <p class="info-tagline" tabindex="0">${tagline}</p>
+        // </div>
+        // <button id="open-btn" type="button" class="contact_button open-btn" aria-label="Contact me" tabindex="0" onclick="displayModal()">Contactez-moi</button>
+        // <img class="photographer__portrait" src="${picture}" alt="${name}">`
         
-        photographerHeader.innerHTML = headerContent;
+        //photographerHeader.innerHTML = headerContent;
+
+        photographerHeader.appendChild(photographerInfo);
+        photographerHeader.appendChild(contactBtn);
+        photographerHeader.appendChild(photographerPortrait);
         
         return photographerHeader;
     }

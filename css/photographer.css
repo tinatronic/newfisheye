@@ -99,16 +99,17 @@
 
 #photographer_pricing {
     width: 350px;
+    height: 60px;
     position: fixed;
-    top: 93%;
-    right: 38px;
-    background-color: var(--secondary-color);
+    bottom: 0;
+    right: 50px;
+    background-color: #DB8876;
     border-radius: 5px 5px 0 0;
     font-size: 20px;
     display: flex;
     justify-content: space-between;
-    padding: 12px 20px;
-    
+    align-items: center;
+    padding: 12px 20px;   
 }
 
 /* Modal */
@@ -128,6 +129,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 9999;
 }
 
 .modal header {
@@ -192,9 +194,17 @@ form textarea {
     opacity: 0;
     transition: 0.3s;
   }
-  .form-data[data-error-visible="true"]::after {
+
+.form-data[data-error-visible="true"]::after {
     opacity: 1;
-  }
-  .form-data[data-error-visible="true"] .text-control {
+}
+
+.form-data[data-error-visible="true"] .form-control {
     border: 2px solid var(--primary-color);
-  }
+}
+
+/* Lightbox */
+
+/* .lightnox-container {
+    display: none;
+} */

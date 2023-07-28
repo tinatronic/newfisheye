@@ -12,13 +12,13 @@
 </head>
 <body>
   <header>
-    <a href="index.html" title="Page d'accueil">
+    <a href="index.html" title="Page d'accueil" tabindex="1">
       <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
     </a>
   </header>
   <main id="main" class="container">
     <div class="photographer__header">
-      <!-- <button id="open-btn" type="button" class="contact_button open-btn" aria-label="Contact me" tabindex="0" onclick="displayModal()">Contactez-moi</button> -->
+      <button id="open-btn" type="button" class="contact_button open-btn" aria-label="Contact me" tabindex="1">Contactez-moi</button>
     </div>
     <!-- Filters -->
     <section id="media_filter"></section>
@@ -34,7 +34,7 @@
         <h2 id="modal-title" role="heading">Contactez-moi</h2>
         <img class="close-btn" src="assets/icons/close.svg" onclick="closeModal()"/>
       </header>
-      <form id="contact-form" name="contact-form" action="photographer.html" method="post">
+      <form id="contact-form" name="contact-form" aria-invalid="false">
         <div class="form-data" role="group" aria-labelledby="firstName-label">
           <label id="firstName-label" for="first-name">Prénom</label>
           <input id="first-name" name="first-name" class="form-control" type="text" minlength="2"/>
@@ -51,7 +51,7 @@
           <label id="message-label" for="message">Votre message</label>
           <textarea id="message" name="message" class="form-control" rows="4"></textarea>
         </div>
-        <button class="contact_button">Envoyer</button>
+        <button id="submit" class="contact_button" type="submit" role="button">Envoyer</button>
       </form>
     </div>
   </div>
@@ -64,5 +64,6 @@
   <script src="/scripts/templates/media.js"></script>
   <!-- Utils -->
   <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts/utils/lightbox.js"></script>
 </body>
 </html>

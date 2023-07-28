@@ -1,4 +1,3 @@
-//import { mediaTemplate }  from "../templates/media.js"
 
 //Get the value of the ID parameter of the URL
 const url = new URLSearchParams(document.location.search);
@@ -31,8 +30,8 @@ async function getMediabyId() {
 }
 
 // Get the header template and display the data on the page
-async function displayPhotographerHeader(photographerById) {
-    const headerModel = photographerTemplate(photographerById);
+async function displayPhotographerHeader(photographer) {
+    const headerModel = photographerTemplate(photographer);
     headerModel.displayHeaderDOM();
 }
 

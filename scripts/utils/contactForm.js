@@ -1,13 +1,16 @@
 // DOM elements
 const modal = document.getElementById("contact_modal");
-//const openBtn = document.querySelector(".open-btn");
+const openBtn = document.querySelector(".open-btn");
 const closeBtn = document.querySelector(".close-btn")
 const formContact = document.getElementById("contact-form");
 const formData = document.querySelectorAll(".form-data");
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
+const message = document.getElementById('message');
 
+// Listener that triggers the displayModal function
+openBtn.addEventListener("click", displayModal);
 
 // Opens the modal
 function displayModal() {
@@ -19,14 +22,6 @@ function displayModal() {
 function closeModal() {
     modal.style.display = "none";
     formContact.reset();
-        
-    // Allows to close modal with 'Escape' key -- NOT WORKING --
-    document.addEventListener("keydown", function (event) {
-        if (event.key == 27) {
-            console.log("Close the modal")
-            closeModal();
-        }
-    });
 }
 
 // Checks if conditions are met to validate form
@@ -36,7 +31,8 @@ function validateForm(event) {
     const conditions = [
     validateFirstName(),
     validateLastName(),
-    validateEmail()
+    validateEmail(),
+    validateMessage()
     ]
     if (conditions.filter((cond) => !cond).length) {
         return false;
@@ -85,6 +81,18 @@ function validateEmail() {
         
     if (email.value == "" || !emailRegex.test(email.value)) {
         parent.setAttribute("data-error", "Veuillez saisir une adresse e-mail valide.");
+        parent.setAttribute("data-error-visible", "true");
+        return false;
+    }
+    parent.setAttribute("data-error-visible", "false");
+    return true;
+}
+
+function validateMessage() {
+    const parent = document.getElementById('message').parentNode;
+
+    if (message.value == "") {
+        parent.setAttribute("data-error", "Ce champ ne peut pas être vide.");
         parent.setAttribute("data-error-visible", "true");
         return false;
     }
