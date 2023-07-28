@@ -49,8 +49,23 @@ function photographerTemplate(data) {
         <img class="photographer__portrait" src="${picture}" alt="${name}">`
         
         photographerHeader.innerHTML = headerContent;
+        
         return photographerHeader;
     }
+
+    async function createTotalLikesDOM() {
+        const totalLikesSection = document.getElementById('photographer_pricing');
+
+        const likesContent = `<div>
+        <span id="total-likes">99</span>
+        <i class="fas fa-heart"></i>
+        </div>
+        <span>${price}€ / jour</span>`
+        
+        totalLikesSection.innerHTML = likesContent;
+
+        return totalLikesSection;
+    }
     
-    return { displayCardDOM, displayHeaderDOM }
+    return { displayCardDOM, displayHeaderDOM, createTotalLikesDOM }
 }

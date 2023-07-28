@@ -54,15 +54,14 @@ async function displayMedia(medias, photographer) {
     // });
 }
 
-async function displayTotalLikes(photographer) {
-    const totalLikesModel = mediaTemplate(media, photographer);
-    totalLikesModel.displayTotalLikesDOM();
+async function displayTotalLikes(price) {
+    const totalLikesModel = photographerTemplate(price);
+    totalLikesModel.createTotalLikesDOM();
 }
 
 async function init() {
     const photographertoDisplay  = await getPhotographerbyId();
     const mediaToDisplay  = await getMediabyId();
-    //const totalLikesDisplay = await getPhotographerbyId();
     displayPhotographerHeader(photographertoDisplay);
     displayMedia(mediaToDisplay, photographertoDisplay);
     displayTotalLikes(photographertoDisplay);
