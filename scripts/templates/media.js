@@ -27,22 +27,23 @@ async function mediaTemplate(media, photographer) {
     }
 
     async function createLightboxDOM() {
+        const lightboxSection = document.getElementById("lightbox");
         const lightboxContainer = document.createElement('div');
         lightboxContainer.classList.add('lightbox-container');
 
-        const lightboxContent = `<button>
+        const lightboxContent = `<button class="close-lb-btn">
         <i class="fas fa-xmark"></i>
         </button>
-        <button>
+        <button type="button" class="prev-btn">
         <i class="fas fa-chevron-left"></i>
         </button>
-        <button>
+        <button type="button" class="next-btn">
         <i class="fas fa-chevron-right"></i>
         </button>
         <div></div>`
 
         lightboxContainer.innerHTML = lightboxContent;
-
+        lightboxSection.appendChild(lightboxContainer);
         return lightboxContainer;
     }
 

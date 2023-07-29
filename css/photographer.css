@@ -209,6 +209,48 @@ form textarea {
 
 /* Lightbox */
 
-/* .lightnox-container {
-    display: none;
-} */
+#lightbox {
+    justify-content: space-between;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-container {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #000;
+    position: relative;
+}
+
+.close-lb-btn, .prev-btn, .next-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 35px;
+    position: absolute;
+}
+
+.close-lb-btn {
+    right: 5%;
+    top: 6%;
+}
+
+.prev-btn, .next-btn {
+    top: 46%; 
+}
+
+.prev-btn {
+    left: 5%;
+}
+
+.next-btn {
+    right: 5%;
+}

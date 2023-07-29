@@ -58,12 +58,18 @@ async function displayTotalLikes(price) {
     totalLikesModel.createTotalLikesDOM();
 }
 
+async function displayLightbox(media, photographer) {
+    const lightboxModel = await mediaTemplate(media, photographer);
+    lightboxModel.createLightboxDOM();
+}
+
 async function init() {
     const photographertoDisplay  = await getPhotographerbyId();
     const mediaToDisplay  = await getMediabyId();
     displayPhotographerHeader(photographertoDisplay);
     displayMedia(mediaToDisplay, photographertoDisplay);
     displayTotalLikes(photographertoDisplay);
+    displayLightbox(mediaToDisplay, photographertoDisplay);
 }
 
 init();
