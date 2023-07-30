@@ -1,13 +1,21 @@
 // DOM elements
 const modal = document.getElementById("contact_modal");
 const openBtn = document.querySelector("#open-btn");
-const closeBtn = document.querySelector(".close-btn")
+const closeBtn = document.querySelector(".close-btn");
 const formContact = document.getElementById("contact-form");
 const formData = document.querySelectorAll(".form-data");
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
 const message = document.getElementById('message');
+
+// Retrieve the photographer data to get the name and place it in the modal title
+async function getPhotographerName() {
+    const photoData = await getPhotographerbyId();
+    const photoName = photoData.name;
+    console.log(photoName);
+    return photoName;
+}
 
 // Listener that triggers the displayModal function
 openBtn.addEventListener("click", displayModal);
@@ -19,10 +27,16 @@ openBtn.addEventListener("keydown", (e) => {
 });
 
 // Opens the modal
-function displayModal() {
+async function displayModal() {
     modal.style.display = "block";
     modal.focus();
     document.body.classList.add("no-scroll");
+
+    // Adds the photographer name in the modal title
+    const modalTitle = document.getElementById("modal-title");
+    const modalTitleName = await getPhotographerName();
+    console.log(modalTitleName)
+    modalTitle.innerHTML = `Contactez moi<br>${modalTitleName}`;
 }
     
 // Closes modal and resets form

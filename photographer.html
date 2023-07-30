@@ -31,7 +31,7 @@
   <div id="contact_modal">
     <div class="modal" aria-modal="true" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
       <header>
-        <h2 id="modal-title" role="heading">Contactez-moi</h2>
+        <h2 id="modal-title" role="heading"></h2>
         <img class="close-btn" src="assets/icons/close.svg" onclick="closeModal()"/>
       </header>
       <form id="contact-form" name="contact-form" aria-invalid="false">
@@ -51,7 +51,7 @@
           <label id="message-label" for="message">Votre message</label>
           <textarea id="message" name="message" class="form-control" rows="4"></textarea>
         </div>
-        <button id="submit" class="contact_button" type="submit" role="button">Envoyer</button>
+        <button id="submit" class="contact_button" type="submit" role="button" aria-label="send">Envoyer</button>
       </form>
     </div>
   </div>

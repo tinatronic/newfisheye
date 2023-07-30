@@ -142,9 +142,10 @@
 }
 
 .modal header h2 {
-    font-size: 64px;
+    /*font-size: 64px;*/
+    font-size: 52px;
     font-weight: normal;
-    text-align: center;
+    /* text-align: center; */
 }
 
 form {
@@ -210,6 +211,10 @@ form textarea {
 /* Lightbox */
 
 #lightbox {
+    display: none;
+}
+
+.lightbox-container {
     justify-content: space-between;
     background-color: #ffffff;
     position: fixed;
@@ -223,7 +228,7 @@ form textarea {
     align-items: center;
 }
 
-.lightbox-container {
+.lightbox-card {
     width: 500px;
     height: 500px;
     border: 1px solid #000;
