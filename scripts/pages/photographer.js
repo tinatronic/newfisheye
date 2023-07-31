@@ -38,7 +38,7 @@ async function displayPhotographerHeader(photographer) {
 // Get the media template and display the data on the page
 async function displayMedia(medias, photographer) {
     const mediaSection = document.getElementById("media");
-
+    // Use of for...of loop as await can't be used in a foreach
     for (const media of medias) {
         const mediaModel = await mediaTemplate(media, photographer);
         const mediaCardDOM = await mediaModel.displayMediaCardDOM();

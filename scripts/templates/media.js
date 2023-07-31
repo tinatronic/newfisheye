@@ -8,9 +8,9 @@ async function mediaTemplate(media, photographer) {
         // Checks if the media is an img or a video
         const mediaContent = `<figure class="media-card">
         ${media.hasOwnProperty("image")
-        ? `<a href="#" class="media-link"><img src="../assets/media/${photographer.name}/${image}" class="media-content id-${id}" alt="${title}"></img></a>`
+        ? `<img src="../assets/media/${photographer.name}/${image}" class="media-content id-${id}" alt="${title}" tabindex="0" onclick="displayLightbox()"></img>`
         : media.hasOwnProperty("video")
-        ? `<a href="#" class="media-link"><video src="../assets/media/${photographer.name}/${video}" class="media-content id-${id}" alt="${title}"></video></a>`
+        ? `<video src="../assets/media/${photographer.name}/${video}" class="media-content id-${id}" alt="${title}" tabindex="0" onclick="displayLightbox()"></video>`
         : ""}
         <figcaption class="media-description">
         <p>${title}</p>
@@ -31,8 +31,9 @@ async function mediaTemplate(media, photographer) {
         const lightboxContainer = document.createElement('div');
         lightboxContainer.classList.add('lightbox-container');
 
-        const lightboxContent = `<button class="close-lb-btn">
-        <i class="fas fa-xmark"></i>
+        const lightboxContent = `<div class="lightbox-card">
+        <button class="close-lb-btn">
+        <i class="fas fa-xmark" onclick="closeLightbox()"></i>
         </button>
         <button type="button" class="prev-btn">
         <i class="fas fa-chevron-left"></i>
@@ -40,7 +41,7 @@ async function mediaTemplate(media, photographer) {
         <button type="button" class="next-btn">
         <i class="fas fa-chevron-right"></i>
         </button>
-        <div></div>`
+        </div>`
 
         lightboxContainer.innerHTML = lightboxContent;
         lightboxSection.appendChild(lightboxContainer);

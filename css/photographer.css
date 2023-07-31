@@ -86,6 +86,7 @@
     height: calc(100% - 31px);
     object-fit: cover;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .media-card figcaption {
