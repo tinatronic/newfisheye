@@ -32,8 +32,8 @@ async function mediaTemplate(media, photographer) {
         lightboxContainer.classList.add('lightbox-container');
 
         const lightboxContent = `<div class="lightbox-card">
-        <button class="close-lb-btn">
-        <i class="fas fa-xmark" onclick="closeLightbox()"></i>
+        <button class="close-lb-btn" onclick="closeLightbox()">
+        <i class="fas fa-xmark"></i>
         </button>
         <button type="button" class="prev-btn">
         <i class="fas fa-chevron-left"></i>

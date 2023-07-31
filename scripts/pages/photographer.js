@@ -43,6 +43,7 @@ async function displayMedia(medias, photographer) {
         const mediaModel = await mediaTemplate(media, photographer);
         const mediaCardDOM = await mediaModel.displayMediaCardDOM();
         mediaSection.appendChild(mediaCardDOM);
+        await mediaModel.createLightboxDOM();
     }
     // photographerMediaById.forEach((photographerMediaById) => {
     //     const mediaModel = mediaTemplate(photographerMediaById);
@@ -51,6 +52,7 @@ async function displayMedia(medias, photographer) {
     //     //console.log(mediaCardDOM)
     //     mediaSection.appendChild(mediaCardDOM);
     // });
+    
 }
 
 async function displayTotalLikes(price) {
@@ -58,10 +60,10 @@ async function displayTotalLikes(price) {
     totalLikesModel.createTotalLikesDOM();
 }
 
-async function displayLightbox(media, photographer) {
-    const lightboxModel = await mediaTemplate(media, photographer);
-    lightboxModel.createLightboxDOM();
-}
+// async function displayLightbox(media, photographer) {
+//     const lightboxModel = await mediaTemplate(media, photographer);
+//     lightboxModel.createLightboxDOM();
+// }
 
 async function init() {
     const photographertoDisplay  = await getPhotographerbyId();
@@ -69,7 +71,7 @@ async function init() {
     displayPhotographerHeader(photographertoDisplay);
     displayMedia(mediaToDisplay, photographertoDisplay);
     displayTotalLikes(photographertoDisplay);
-    displayLightbox(mediaToDisplay, photographertoDisplay);
+    //displayLightbox(mediaToDisplay, photographertoDisplay);
 }
 
 init();

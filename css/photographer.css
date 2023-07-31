@@ -62,7 +62,7 @@
 #media {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 70px;
     margin: 100px 0 75px 0;
 }
@@ -223,7 +223,7 @@ form textarea {
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: 500;
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,6 +242,7 @@ form textarea {
     color: var(--primary-color);
     font-size: 35px;
     position: absolute;
+    cursor: pointer;
 }
 
 .close-lb-btn {
