@@ -230,10 +230,26 @@ form textarea {
 }
 
 .lightbox-card {
-    width: 500px;
-    height: 500px;
+    width: 1000px;
+    height: 800px;
     border: 1px solid #000;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-card p {
+    color: var(--primary-color);
+    font-size: 24px;
+}
+
+.lightbox-media {
+    width: 70%;
+    height: 80%;
+    object-fit: cover;
+    box-shadow: 5px 5px 5px lightgrey;
 }
 
 .close-lb-btn, .prev-btn, .next-btn {

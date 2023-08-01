@@ -32,13 +32,19 @@ async function mediaTemplate(media, photographer) {
         lightboxContainer.classList.add('lightbox-container');
 
         const lightboxContent = `<div class="lightbox-card">
+        ${media.hasOwnProperty("image")
+        ? `<img src="../assets/media/${photographer.name}/${image}" class="lightbox-media id-${id}" alt="${title}" tabindex="0"></img>`
+        : media.hasOwnProperty("video")
+        ? `<video src="../assets/media/${photographer.name}/${video}" class="lightbox-media id-${id}" alt="${title}" tabindex="0" controls></video>`
+        : ""}
+        <p>${title}</p>
         <button class="close-lb-btn" onclick="closeLightbox()">
         <i class="fas fa-xmark"></i>
         </button>
         <button type="button" class="prev-btn">
         <i class="fas fa-chevron-left"></i>
         </button>
-        <button type="button" class="next-btn">
+        <button type="button" class="next-btn" onclick="next()">
         <i class="fas fa-chevron-right"></i>
         </button>
         </div>`
