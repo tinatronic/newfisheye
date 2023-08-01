@@ -13,7 +13,6 @@ const message = document.getElementById('message');
 async function getPhotographerName() {
     const photoData = await getPhotographerbyId();
     const photoName = photoData.name;
-    console.log(photoName);
     return photoName;
 }
 
@@ -35,7 +34,6 @@ async function displayModal() {
     // Adds the photographer name in the modal title
     const modalTitle = document.getElementById("modal-title");
     const modalTitleName = await getPhotographerName();
-    console.log(modalTitleName)
     modalTitle.innerHTML = `Contactez moi<br>${modalTitleName}`;
 }
     
