@@ -55,6 +55,15 @@ async function displayMedia(medias, photographer) {
     
 }
 
+const likeBtn = document.querySelectorAll(".like-btn");
+likeBtn.forEach(function (likeBtn) {
+    incrementLikes(likeBtn);
+});
+
+function incrementLikes() {
+    console.log("toto")
+}
+
 async function displayTotalLikes(price) {
     const totalLikesModel = photographerTemplate(price);
     totalLikesModel.createTotalLikesDOM();

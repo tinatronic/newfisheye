@@ -98,6 +98,10 @@
     padding: 10px 5px;
 }
 
+.like-btn {
+    cursor: pointer;
+}
+
 #photographer_pricing {
     width: 350px;
     height: 60px;
@@ -266,14 +270,14 @@ form textarea {
     top: 6%;
 }
 
-.prev-btn, .next-btn {
+.prev-lb-btn, .next-btn {
     top: 46%; 
 }
 
-.prev-btn {
+.prev-lb-btn {
     left: 5%;
 }
 
-.next-btn {
+.next-lb-btn {
     right: 5%;
 }
