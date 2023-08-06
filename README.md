@@ -1,6 +1,6 @@
 # FishEye
 
-Sixième projet du parcours **Développeur d'applications Javacript React** d'OpenClassrooms.
+Sixième projet du parcours **Développeur d'applications Javascript React** d'OpenClassrooms.
 
 [lien vers la page]()
 
