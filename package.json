@@ -1,0 +1,22 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "Sixième projet du parcours **Développeur d'applications Javascript React** d'OpenClassrooms.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justine-patoux/newfisheye.git"
+  },
+  "author": "justine patoux",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justine-patoux/newfisheye/issues"
+  },
+  "homepage": "https://github.com/justine-patoux/newfisheye#readme",
+  "devDependencies": {
+    "eslint": "^8.46.0"
+  }
+}
