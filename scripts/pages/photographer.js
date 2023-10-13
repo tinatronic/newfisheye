@@ -1,4 +1,3 @@
-
 //Get the value of the ID parameter of the URL
 const url = new URLSearchParams(document.location.search);
 const photographerIdURL = parseInt(url.get("id"));
@@ -6,7 +5,7 @@ const photographerIdURL = parseInt(url.get("id"));
 // Get the photographer corresponsing of the Id of the page
 async function getPhotographerbyId() {
     try {
-        const res = await fetch('../data/photographers.json');
+        const res = await fetch('./data/photographers.json');
         const data = await res.json();
         const photographerById = data.photographers.find((dataPhotographer) => dataPhotographer.id === photographerIdURL);
 
@@ -19,7 +18,7 @@ async function getPhotographerbyId() {
 // Get the media of the photographer corresponding of the Id of the page
 async function getMediabyId() {
     try {
-        const res = await fetch('../data/photographers.json')
+        const res = await fetch('./data/photographers.json')
         const data = await res.json();
         const photographerMediaById = data.media.filter((dataMediaPhotographer) => dataMediaPhotographer.photographerId === photographerIdURL);
 
@@ -42,8 +41,12 @@ async function displayMedia(medias, photographer) {
     for (const media of medias) {
         const mediaModel = await mediaTemplate(media, photographer);
         const mediaCardDOM = await mediaModel.displayMediaCardDOM();
+        mediaCardDOM.addEventListener('click', async () => {
+            await mediaModel.createLightboxDOM();
+            await openLightbox();
+        })
         mediaSection.appendChild(mediaCardDOM);
-        await mediaModel.createLightboxDOM();
+        //await mediaModel.createLightboxDOM();
     }
     // photographerMediaById.forEach((photographerMediaById) => {
     //     const mediaModel = mediaTemplate(photographerMediaById);

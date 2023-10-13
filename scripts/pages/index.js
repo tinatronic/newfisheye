@@ -1,10 +1,11 @@
 // Récupère toutes les données (media et phographes)
 async function getData() {
     try {
-        const res = await fetch('../data/photographers.json');
+        const res = await fetch('./data/photographers.json');
         const data = await res.json();
         return data;
     } catch(err) {
+        console.log(err)
         throw new Error("Error fetching data.")
     }   
 }

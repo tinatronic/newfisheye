@@ -8,9 +8,9 @@ async function mediaTemplate(media, photographer) {
         // Checks if the media is an img or a video
         const mediaContent = `<figure class="media-card">
         ${media.hasOwnProperty("image")
-        ? `<img src="../assets/media/${photographer.name}/${image}" class="media-content id-${id}" alt="${title}" tabindex="0"></img>`
+        ? `<img src="./assets/media/${photographer.name}/${image}" class="media-content id-${id}" alt="${title}" tabindex="0"></img>`
         : media.hasOwnProperty("video")
-        ? `<video src="../assets/media/${photographer.name}/${video}" class="media-content id-${id}" alt="${title}" tabindex="0"></video>`
+        ? `<video src="./assets/media/${photographer.name}/${video}" class="media-content id-${id}" alt="${title}" tabindex="0"></video>`
         : ""}
         <figcaption class="media-description">
         <p>${title}</p>
@@ -33,9 +33,9 @@ async function mediaTemplate(media, photographer) {
 
         const lightboxContent = `<div class="lightbox-card">
         ${media.hasOwnProperty("image")
-        ? `<img src="../assets/media/${photographer.name}/${image}" class="lightbox-media id-${id}" alt="${title}" tabindex="0" onclick="openLightbox(this.src)"></img>`
+        ? `<img src="./assets/media/${photographer.name}/${image}" class="lightbox-media id-${id}" alt="${title}" tabindex="0" onclick="openLightbox(this.src)"></img>`
         : media.hasOwnProperty("video")
-        ? `<video src="../assets/media/${photographer.name}/${video}" class="lightbox-media id-${id}" alt="${title}" tabindex="0" onclick="openLightbox()" controls></video>`
+        ? `<video src="./assets/media/${photographer.name}/${video}" class="lightbox-media id-${id}" alt="${title}" tabindex="0" onclick="openLightbox()" controls></video>`
         : ""}
         <p>${title}</p>
         <button class="close-lb-btn">

@@ -11,14 +11,11 @@ console.log(lightboxMediaItem)
 
 
 // Opens the lightbox modal when user clicks on a media or presses Enter
-function openLightbox() {
-  const lightboxSection = document.getElementById("lightbox");
-  
-  
+async function openLightbox() {
+  lightboxSection.style.display = "block";
 }
 
 function closeLightbox() {
-
   lightboxSection.style.display = "none";
 }
 
