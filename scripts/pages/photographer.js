@@ -53,6 +53,7 @@ async function displayMedia(medias, photographer) {
         const likeButton = document.getElementById(`like-button-${media.id}`);
         likeButton.addEventListener('click', () => {
             const likeSpan = document.getElementById(`like-${media.id}`);
+            
             console.log(likeSpan)
             likeSpan.innerHTML = (media.likes + 1);
         });
