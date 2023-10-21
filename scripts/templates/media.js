@@ -1,5 +1,5 @@
-async function mediaTemplate(media, photographer) {
-    const { id, photographerID, title, image, video, likes, date, price } = media;
+async function mediaTemplate(media, photographer, medias) {
+    let { id, photographerID, title, image, video, likes, date, price } = media;
     
     // Creates the media section template
     async function displayMediaCardDOM() {
@@ -15,14 +15,15 @@ async function mediaTemplate(media, photographer) {
         <figcaption class="media-description">
         <p>${title}</p>
         <div>
-        <span>${likes}</span>
-        <i class="fas fa-heart like-btn" aria-label="likes" role="button"></i>
+        <span id="like-${id}" class="unliked">${likes}</span>
+        <span id="like-button-${id}"><i class="fas fa-heart like-btn" aria-label="likes" role="button"></i></span>
         </div>
         </figcaption>
         </figure>`
         
         mediaArticle.innerHTML = mediaContent;
-        
+
+
         return mediaArticle;    
     }
 
@@ -51,6 +52,10 @@ async function mediaTemplate(media, photographer) {
 
         lightboxContainer.innerHTML = lightboxContent;
         lightboxSection.appendChild(lightboxContainer);
+
+        let nextBtn = document.querySelector('.next-lb-btn');
+        nextBtn.addEventListener('click', () => {moveRight(id, medias, photographer);
+        media = medias[medias.findIndex((m) => m.id == id) + 1]})
         return lightboxContainer;
     }
 

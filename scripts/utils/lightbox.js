@@ -24,3 +24,17 @@ document.addEventListener("keyup", function (event) {
     closeLightbox();
   }
 });
+
+function moveRight(id, medias, photographer) {
+  let img = document.querySelector(`.lightbox-media`);
+  let indexCurrentMedia = medias.findIndex(m => m.id == id);
+  let nextMedia = medias[indexCurrentMedia + 1];
+  console.log(nextMedia)
+  img.src = `./assets/media/${photographer.name}/${nextMedia.image}`
+  console.log(img)
+  img.innerHTML = nextMedia.hasOwnProperty("image")
+        ? `<img src="./assets/media/${photographer.name}/${nextMedia.image}" class="lightbox-media id-${nextMedia.id}" alt="${nextMedia.title}" tabindex="0" onclick="openLightbox(this.src)"></img>`
+        : nextMedia.hasOwnProperty("video")
+        ? `<video src="./assets/media/${photographer.name}/${nextMedia.video}" class="lightbox-media id-${nextMedia.id}" alt="${nextMedia.title}" tabindex="0" onclick="openLightbox()" controls></video>`
+        : ""
+}

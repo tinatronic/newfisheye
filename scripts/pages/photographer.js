@@ -39,13 +39,23 @@ async function displayMedia(medias, photographer) {
     const mediaSection = document.getElementById("media");
     // Use of for...of loop as await can't be used in a foreach
     for (const media of medias) {
-        const mediaModel = await mediaTemplate(media, photographer);
+        const mediaModel = await mediaTemplate(media, photographer, medias);
         const mediaCardDOM = await mediaModel.displayMediaCardDOM();
-        mediaCardDOM.addEventListener('click', async () => {
+        
+        mediaSection.appendChild(mediaCardDOM);
+
+        const picture = document.querySelector(`.id-${media.id}`);
+        picture.addEventListener('click', async () => {
             await mediaModel.createLightboxDOM();
             await openLightbox();
         })
-        mediaSection.appendChild(mediaCardDOM);
+
+        const likeButton = document.getElementById(`like-button-${media.id}`);
+        likeButton.addEventListener('click', () => {
+            const likeSpan = document.getElementById(`like-${media.id}`);
+            console.log(likeSpan)
+            likeSpan.innerHTML = (media.likes + 1);
+        });
         //await mediaModel.createLightboxDOM();
     }
     // photographerMediaById.forEach((photographerMediaById) => {
@@ -67,8 +77,8 @@ function incrementLikes() {
     console.log("toto")
 }
 
-async function displayTotalLikes(price) {
-    const totalLikesModel = photographerTemplate(price);
+async function displayTotalLikes(photographer, medias) {
+    const totalLikesModel = photographerTemplate(photographer, medias);
     totalLikesModel.createTotalLikesDOM();
 }
 
@@ -82,7 +92,7 @@ async function init() {
     const mediaToDisplay  = await getMediabyId();
     displayPhotographerHeader(photographertoDisplay);
     displayMedia(mediaToDisplay, photographertoDisplay);
-    displayTotalLikes(photographertoDisplay);
+    displayTotalLikes(photographertoDisplay, mediaToDisplay);
     //displayLightbox(mediaToDisplay, photographertoDisplay);
 }
 

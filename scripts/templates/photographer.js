@@ -1,4 +1,4 @@
-function photographerTemplate(data) {
+function photographerTemplate(data, medias) {
     const { name, id, city, country, tagline, price, portrait } = data;
     const picture = `assets/photographers/${portrait}`;
     const link = `./photographer.html?id=${id}`;
@@ -75,9 +75,12 @@ function photographerTemplate(data) {
 
     async function createTotalLikesDOM() {
         const totalLikesSection = document.getElementById('photographer_pricing');
-
+        let total = 0;
+        medias.forEach(element => {
+            total += element.likes;
+        });
         const likesContent = `<div>
-        <span id="total-likes">99</span>
+        <span id="total-likes">${total}</span>
         <i class="fas fa-heart"></i>
         </div>
         <span>${price}€ / jour</span>`
